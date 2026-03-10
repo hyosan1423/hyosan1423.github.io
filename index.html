@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyosan Shin's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <style>
+        :root {
+            /* 컬러 팔레트 */
+            --bg-dark: #0f0f0f;
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a0;
+            --accent-color: #ff4500; /* 네비게이션 포인트 */
+            --gold-color: #ffb347;   /* 강조 텍스트 */
+            --border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            /* 움직이는 그라데이션 배경 */
+            background: linear-gradient(-45deg, #0f0f0f, #1a1a1a, #2e1a1a, #150f0f);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-main);
+            height: 100vh; /* 화면 꽉 차게 */
+            overflow: hidden; /* 전체 페이지 스크롤 없애기 */
+            line-height: 1.6;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 레이아웃 구조 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center; /* 세로 중앙 정렬 */
+        }
+
+        /* 네비게이션 (오른쪽 고정) */
+        nav {
+            position: fixed;
+            top: 50%;
+            right: 40px;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-item {
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-muted);
+            padding: 10px 20px;
+            font-size: 1rem;
+            text-align: right;
+            transition: all 0.3s;
+            border-right: 2px solid transparent;
+        }
+
+        .nav-item:hover {
+            color: var(--gold-color);
+        }
+
+        .nav-item.active {
+            color: var(--text-main);
+            border-right: 2px solid var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* 로고 영역 (왼쪽 상단 고정) */
+        header {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            z-index: 50;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 50px;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        /* 섹션 공통 스타일 */
+        .section-content {
+            display: none; /* 기본적으로 숨김 */
+            width: 100%;
+            max-width: 900px; 
+            animation: fadeIn 0.8s ease forwards;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+
+        /* 스크롤바 디자인 */
+        .section-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        .section-content::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+        }
+        .section-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        h1 .highlight {
+            color: var(--gold-color);
+            font-style: italic;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* HOME 스타일 */
+        .home-desc {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .current-box {
+            margin-top: 50px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent-color);
+        }
+        .current-label {
+            color: var(--gold-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* INFO 스타일 (스펙 그리드) */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            font-size: 0.95rem;
+        }
+        
+        .info-group {
+            margin-bottom: 30px;
+        }
+        
+        .info-label {
+            color: var(--gold-color);
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: block;
+            font-size: 1.15rem;
+            border-bottom: 1px solid rgba(255,179,71, 0.2);
+            padding-bottom: 5px;
+            width: fit-content;
+        }
+
+        .info-text li {
+            list-style: none;
+            margin-bottom: 6px;
+            color: var(--text-muted);
+        }
+        .info-text li::before {
+            content: "• ";
+            color: var(--accent-color);
+        }
+
+        /* Timeline 스타일 */
+        .timeline-item {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .timeline-year {
+            font-weight: bold;
+            color: var(--text-main);
+            width: 50px;
+            flex-shrink: 0;
+            font-family: 'Playfair Display', serif;
+        }
+        .timeline-content {
+            color: var(--text-muted);
+        }
+
+        /* SOCIAL 스타일 */
+        .social-list {
+            margin-top: 20px;
+        }
+        .social-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s;
+        }
+        .social-row:hover {
+            background: rgba(255, 255, 255, 0.03);
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .social-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+        .social-value a {
+            color: var(--gold-color);
+            text-decoration: none;
+            font-family: 'Pretendard', sans-serif;
+            transition: color 0.3s;
+        }
+        .social-value a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            body { overflow-y: auto; height: auto; }
+            nav { 
+                position: fixed; top: auto; bottom: 0; right: 0; left: 0;
+                transform: none; flex-direction: row; justify-content: space-around;
+                background: rgba(15, 15, 15, 0.95); padding: 15px;
+                border-top: 1px solid #333;
+            }
+            .nav-item { text-align: center; padding: 5px; border-right: none; border-bottom: 2px solid transparent; }
+            .nav-item.active { border-right: none; border-bottom: 2px solid var(--accent-color); }
+            
+            .container { display: block; padding-top: 100px; padding-bottom: 100px; }
+            h1 { font-size: 3rem; }
+            .info-grid { grid-template-columns: 1fr; gap: 20px; }
+            .logo { top: 20px; left: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="image_7a0bbd.png" alt="San Logo">
+            <span class="logo-text">Hyosan Shin</span>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-item active" onclick="showSection('home')">Home</div>
+        <div class="nav-item" onclick="showSection('info')">Info</div>
+        <div class="nav-item" onclick="showSection('social')">Social</div>
+        <div class="nav-item" onclick="showSection('projects')">Projects</div>
+    </nav>
+
+    <div class="container">
+        
+        <div id="home" class="section-content active">
+            <h1>Welcome.</h1>
+            
+            <div class="home-desc">
+                물리학과 컴퓨터공학을 좋아하는<br>
+                도전적인 개발자 <span style="color:var(--text-main); font-weight:bold;">신효산(San)</span>입니다.
+            </div>
+
+            <div class="current-box">
+                <p class="current-label">Currently</p>
+                <p style="font-size: 1.1rem;">서강대학교 재학중</p>
+                <p style="color: var(--text-muted);">제1전공 : 물리학과</p>
+                <p style="color: var(--text-muted);">제2전공 : 컴퓨터공학과 (예정)</p>
+            </div>
+        </div>
+
+        <div id="info" class="section-content">
+            <h2>About Me</h2>
+            
+            <div class="info-grid">
+                <div class="col-left">
+                    <div class="info-group">
+                        <span class="info-label">Profile</span>
+                        <ul class="info-text">
+                            <li>신효산 (Hyosan Shin)</li>
+                            <li>06년생 (2006. Seoul)</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-group">
+                        <span class="info-label">Education</span>
+                        <ul class="info-text">
+                            <li>서강대학교 (Sogang Univ.)</li>
+                            <li>학점 : 3.75 / 4.3</li>
+                            <li>제1전공 : 물리학과</li>
+                            <li>제2전공 : 컴퓨터공학과 (예정)</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-group">
+                        <span class="info-label">Skills & Language</span>
+                        <ul class="info-text">
+                            <li>Python, C, C#, C++</li>
+                            <li>한국어, 영어, 일본어, 독일어</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-group">
+                        <span class="info-label">Certificate</span>
+                        <ul class="info-text">
+                            <li>TOEIC : 910점 (2026)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-right">
+                    <div class="info-group">
+                        <span class="info-label">History</span>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2006</span>
+                            <span class="timeline-content">서울특별시 출생</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2025</span>
+                            <span class="timeline-content">보인고등학교 졸업</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2025</span>
+                            <span class="timeline-content">서강대학교 물리학과 입학</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2025</span>
+                            <span class="timeline-content">물리학과 부학생회장 당선</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-content">물리학과 비대위원장 당선</span>
+                        </div>
+                    </div>
+
+                    <div class="info-group">
+                        <span class="info-label">Club Activities</span>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2025</span>
+                            <span class="timeline-content">배구부 동아리 SpikeG 입부</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-content">프로그래밍 동아리 SGCC 입부</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="social" class="section-content">
+            <h2>Social Links</h2>
+            <p style="color:var(--text-muted); margin-bottom:30px;">
+                Contact me via email or social media.
+            </p>
+
+            <div class="social-list">
+                <div class="social-row">
+                    <span class="social-name">Email (Personal)</span>
+                    <span class="social-value"><a href="mailto:hyosanshin927@gmail.com">hyosanshin927@gmail.com</a></span>
+                </div>
+                <div class="social-row">
+                    <span class="social-name">Email (School)</span>
+                    <span class="social-value"><a href="mailto:hyosan1423@sogang.ac.kr">hyosan1423@sogang.ac.kr</a></span>
+                </div>
+
+                <div class="social-row">
+                    <span class="social-name">Github</span>
+                    <span class="social-value"><a href="https://github.com/hyosan1423" target="_blank">hyosan1423</a></span>
+                </div>
+                <div class="social-row">
+                    <span class="social-name">Codeforces</span>
+                    <span class="social-value"><a href="https://codeforces.com/profile/hyosan1423" target="_blank">hyosan1423</a></span>
+                </div>
+                <div class="social-row">
+                    <span class="social-name">Solved.ac</span>
+                    <span class="social-value"><a href="https://solved.ac/profile/hyosan1423" target="_blank">hyosan1423</a></span>
+                </div>
+
+                <div class="social-row">
+                    <span class="social-name">Instagram</span>
+                    <span class="social-value"><a href="https://instagram.com/hyosan1632" target="_blank">@hyosan1632</a></span>
+                </div>
+                <div class="social-row">
+                    <span class="social-name">Discord</span>
+                    <span class="social-value"><a href="#">hyosan1423</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="projects" class="section-content">
+            <h2>Projects</h2>
+            <div style="color: var(--text-muted);">
+                <p>Coming soon...</p>
+                <br>
+                <p>물리학 시뮬레이션 및 게임 개발 프로젝트가 업로드될 예정입니다.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // 섹션 전환
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(sec => {
+                sec.classList.remove('active');
+            });
+
+            const target = document.getElementById(sectionId);
+            if(target) {
+                target.classList.add('active');
+            }
+
+            // 네비게이션 버튼 활성화
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if(item.innerText.toLowerCase().includes(sectionId)) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
