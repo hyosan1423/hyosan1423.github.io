@@ -207,7 +207,7 @@
 
         .timeline-item {
             display: flex;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         .timeline-year {
             font-weight: bold;
@@ -218,6 +218,13 @@
         }
         .timeline-content {
             color: var(--text-muted);
+        }
+        .sub-detail {
+            display: block;
+            font-size: 0.85rem;
+            margin-top: 2px;
+            padding-left: 0px;
+            color: var(--gold-color);
         }
 
         .social-list {
@@ -300,6 +307,7 @@
                 <p style="font-size: 1.1rem;">서강대학교 재학중</p>
                 <p style="color: var(--text-muted);">제1전공 : 물리학과</p>
                 <p style="color: var(--text-muted);">제2전공 : 컴퓨터공학과 (예정)</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">(추가독학 : 경영 & 경제)</p>
             </div>
         </div>
 
@@ -310,9 +318,10 @@
                     <div class="info-group">
                         <span class="info-label">Education</span>
                         <ul class="info-text">
-                            <li>서강대학교 물리학과 (25학번)</li>
+                            <li>서강대학교 물리학과 학사</li>
                             <li>제1전공 : 물리학과</li>
                             <li>제2전공 : 컴퓨터공학과 (예정)</li>
+                            <li>이수 학점 : 150학점 (예정)</li>
                         </ul>
                     </div>
 
@@ -320,23 +329,24 @@
                         <span class="info-label">Academic Standing</span>
                         <ul class="info-text">
                             <li>일반 학점 : 3.85 / 4.3</li>
-                            <li>전공 학점 : 4.05 / 4.3</li>
+                            <li>전공 학점 : 4.15 / 4.3</li>
                         </ul>
                     </div>
 
                     <div class="info-group">
-                        <span class="info-label">Language & Skills</span>
+                        <span class="info-label">Language Skills</span>
                         <ul class="info-text">
-                            <li>TOEIC : 820점 (2026-2028)</li>
-                            <li>Python, C, C#, C++</li>
-                            <li>한국어, 영어, 일본어, 독일어</li>
+                            <li>TOEIC : 820점 (2026~2028)</li>
+                            <li>TOEFL : </li>
+                            <li>TEPS : </li>
+                            <li>OPIc : </li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-right">
                     <div class="info-group">
-                        <span class="info-label">Leadership</span>
+                        <span class="info-label">Activities</span>
                         <div class="timeline-item">
                             <span class="timeline-year">2025</span>
                             <span class="timeline-content">물리학과 부학생회장</span>
@@ -345,13 +355,12 @@
                             <span class="timeline-year">2026</span>
                             <span class="timeline-content">물리학과 비상대책위원장</span>
                         </div>
-                    </div>
-
-                    <div class="info-group">
-                        <span class="info-label">Academic Societies</span>
                         <div class="timeline-item">
                             <span class="timeline-year">2026</span>
-                            <span class="timeline-content">물리학과 학술 중점 토론 학회 SPIN (1기 부학회장)</span>
+                            <span class="timeline-content">
+                                물리학과 학술 토론 중점 학회 SPIN
+                                <span class="sub-detail">SPIN 1기 부학회장</span>
+                            </span>
                         </div>
                         <div class="timeline-item">
                             <span class="timeline-year">2026</span>
@@ -361,10 +370,6 @@
                             <span class="timeline-year">2026</span>
                             <span class="timeline-content">컴퓨터공학과 프로젝트 학회 Release</span>
                         </div>
-                    </div>
-
-                    <div class="info-group">
-                        <span class="info-label">Club Activities</span>
                         <div class="timeline-item">
                             <span class="timeline-year">2025</span>
                             <span class="timeline-content">중앙 배구동아리 SpikeG</span>
@@ -386,6 +391,10 @@
                     <span class="social-value"><a href="mailto:hyosanshin927@gmail.com">hyosanshin927@gmail.com</a></span>
                 </div>
                 <div class="social-row">
+                    <span class="social-name">Email (School)</span>
+                    <span class="social-value"><a href="mailto:hyosanshin927@gmail.com">hyosan1423@sogang.ac.kr</a></span>
+                </div>
+                <div class="social-row">
                     <span class="social-name">Github</span>
                     <span class="social-value"><a href="https://github.com/hyosan1423" target="_blank">hyosan1423</a></span>
                 </div>
@@ -401,20 +410,22 @@
                     <span class="social-name">Instagram</span>
                     <span class="social-value"><a href="https://instagram.com/hyosan1632" target="_blank">@hyosan1632</a></span>
                 </div>
-                <div class="social-row">
-                    <span class="social-name">Discord</span>
-                    <span class="social-value"><a href="#">hyosan1423</a></span>
-                </div>
             </div>
         </div>
 
         <div id="projects" class="section-content">
             <h2>Projects</h2>
-            <div style="color: var(--text-muted);">
-                <p>Release 및 ICPC 활동을 통한 프로젝트가 곧 업데이트될 예정입니다.</p>
-                <br>
-                <p>• 물리학 기반 엔진 시뮬레이션 (Coming soon)</p>
-                <p>• 알고리즘 최적화 프로젝트 (In Progress)</p>
+            <div style="color: var(--text-main);">
+                <div class="info-group">
+                    <span class="info-label">2026</span>
+                    <p style="font-size: 1.2rem; font-weight: bold;">The Assassin</p>
+                    <p style="color: var(--text-muted);">물리학 및 컴퓨터공학 기반 프로젝트</p>
+                </div>
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">
+                <div style="color: var(--text-muted);">
+                    <p>• 물리학 기반 엔진 시뮬레이션 (Coming soon)</p>
+                    <p>• 양자역학 물리엔진 구현 (Idea Stage)</p>
+                </div>
             </div>
         </div>
 
