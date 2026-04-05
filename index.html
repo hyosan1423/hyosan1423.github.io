@@ -258,6 +258,37 @@
             text-decoration: underline;
         }
 
+        /* Experience 수정 스타일 */
+        .exp-item {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .exp-label {
+            font-weight: bold;
+            color: var(--text-main);
+        }
+        .status-badge {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+        .exp-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding-left: 10px;
+            border-left: 1px solid var(--border-color);
+        }
+
         @media (max-width: 768px) {
             body { overflow-y: auto; height: auto; }
             nav { 
@@ -407,28 +438,51 @@
                     </div>
 
                     <div class="info-group">
-                        <span class="info-label">Experience & Awards</span>
-                        <div class="exp-group">
-                            <div class="exp-item">
-                                <span class="exp-label">Awards</span>
+                        <span class="info-label">Awards</span>
+                        <div class="exp-item">
+                            <div class="exp-header">
+                                <span class="exp-label">Competition & Honors</span>
                                 <span class="status-badge">In Progress</span>
                             </div>
-                            <div class="exp-item">
-                                <span class="exp-label">Internship</span>
-                                <span class="status-badge">In Progress</span>
-                            </div>
-                            <div class="exp-item">
-                                <span class="exp-label">International</span>
-                                <span class="status-badge">In Progress</span>
-                            </div>
-                            <div class="exp-item">
-                                <span class="exp-label">Research Student</span>
-                                <span class="status-badge">In Progress</span>
-                            </div>
+                            <span class="exp-desc">교내외 알고리즘 경진대회 준비 중</span>
                         </div>
                     </div>
-
-        <div id="social" class="section-content">
+                
+                    <div class="info-group">
+                        <span class="info-label">Internship</span>
+                        <div class="exp-item">
+                            <div class="exp-header">
+                                <span class="exp-label">Industry Experience</span>
+                                <span class="status-badge">In Progress</span>
+                            </div>
+                            <span class="exp-desc">컴퓨터공학 관련 연구소 및 기업 인턴십 탐색 중</span>
+                        </div>
+                    </div>
+                
+                    <div class="info-group">
+                        <span class="info-label">International</span>
+                        <div class="exp-item">
+                            <div class="exp-header">
+                                <span class="exp-label">Global Programs</span>
+                                <span class="status-badge">In Progress</span>
+                            </div>
+                            <span class="exp-desc">글로벌 프로그램 준비 중</span>
+                        </div>
+                    </div>
+                
+                    <div class="info-group">
+                        <span class="info-label">Research</span>
+                        <div class="exp-item">
+                            <div class="exp-header">
+                                <span class="exp-label">Academic Research</span>
+                                <span class="status-badge">In Progress</span>
+                            </div>
+                            <span class="exp-desc">컴퓨터공학부 학부 연구생 활동 계획 중</span>
+                        </div>
+                    </div>
+                </div>
+                
+        </div> <div id="social" class="section-content">
             <h2>Social Links</h2>
             <div class="social-list">
                 <div class="social-row">
@@ -495,7 +549,8 @@
             const navItems = document.querySelectorAll('.nav-item');
             navItems.forEach(item => {
                 item.classList.remove('active');
-                if(item.innerText.toLowerCase().includes(sectionId)) {
+                // 대소문자 무시하고 매칭되도록 수정
+                if(item.innerText.toLowerCase() === sectionId.toLowerCase()) {
                     item.classList.add('active');
                 }
             });
