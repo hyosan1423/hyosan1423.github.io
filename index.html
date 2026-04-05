@@ -258,38 +258,6 @@
             text-decoration: underline;
         }
 
-        /* 경험 섹션 교정 스타일 */
-        .exp-group {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px; /* 항목 간의 수직 간격 */
-        }
-        
-        .exp-item {
-            display: flex;           /* 가로 정렬 활성화 */
-            justify-content: space-between; /* 왼쪽 끝과 오른쪽 끝으로 밀어내기 */
-            align-items: center;     /* 수직 중앙 정렬 */
-            width: 100%;             /* 전체 너비 사용 */
-            padding-bottom: 5px;
-            border-bottom: 1px dotted rgba(255, 255, 255, 0.1); /* 구분선 */
-        }
-        
-        .exp-label {
-            font-weight: 500;
-            color: var(--text-main);
-        }
-        
-        .status-badge {
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            border-radius: 4px;
-            text-transform: uppercase;
-            white-space: nowrap; /* 줄바꿈 방지 */
-        }
-
         @media (max-width: 768px) {
             body { overflow-y: auto; height: auto; }
             nav { 
