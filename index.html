@@ -306,6 +306,52 @@
                 <p style="font-size: 1.1rem;">서강대학교 재학중</p>
                 <p style="color: var(--text-muted);">제1전공 : 물리학과</p>
                 <p style="color: var(--text-muted);">제2전공 : 컴퓨터공학과 (예정)</p>
+                <p style="color: var(--text-muted);">제3전공 : 전자               background: rgba(15, 15, 15, 0.95); padding: 15px;
+                border-top: 1px solid #333;
+            }
+            .nav-item { text-align: center; padding: 5px; border-right: none; border-bottom: 2px solid transparent; }
+            .nav-item.active { border-right: none; border-bottom: 2px solid var(--accent-color); }
+            
+            .container { display: block; padding-top: 100px; padding-bottom: 100px; }
+            h1 { font-size: 3rem; }
+            .info-grid { grid-template-columns: 1fr; gap: 20px; }
+            header { top: 20px; left: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="San Logo">
+            <span class="logo-text">Hyosan Shin</span>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-item active" onclick="showSection('home')">Home</div>
+        <div class="nav-item" onclick="showSection('info')">Info</div>
+        <div class="nav-item" onclick="showSection('social')">Social</div>
+        <div class="nav-item" onclick="showSection('projects')">Projects</div>
+    </nav>
+
+    <div class="container">
+        
+        <div id="home" class="section-content active">
+            <h1>Welcome.</h1>
+            <div class="home-desc">
+                물리학을 통해 세상을 이해하고<br>
+                컴퓨터공학을 통해 원리를 논리로 구조화하고<br>
+                전자공학을 통해 그 논리를 구현하고 싶은<br>
+                도전적인 개발자 <span style="color:var(--text-main); font-weight:bold;">신효산(San)</span>입니다.
+            </div>
+
+            <div class="current-box">
+                <p class="current-label">Currently</p>
+                <p style="font-size: 1.1rem;">서강대학교 재학중</p>
+                <p style="color: var(--text-muted);">제1전공 : 물리학과</p>
+                <p style="color: var(--text-muted);">제2전공 : 컴퓨터공학과 (예정)</p>
+                <p style="color: var(--text-muted);">제3전공 : 전자공학과 (예정)</p>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">추가독학 : 경영 & 경제</p>
             </div>
         </div>
@@ -322,6 +368,7 @@
                                 <ul style="list-style: none; padding-left: 15px; margin-top: 5px;">
                                     <li style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 3px;"> 제 1전공 : 물리학과</li>
                                     <li style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 3px;"> 제 2전공 : 컴퓨터공학과 (예정)</li>
+                                    <li style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 3px;"> 제 3전공 : 전자공학과 (예정)</li>
                                 </ul>
                             </li>
                         </ul>
@@ -332,7 +379,7 @@
                         <ul class="info-text">
                             <li>일반 학점 : 3.85 / 4.3</li>
                             <li>전공 학점 : 4.15 / 4.3</li>
-                            <li>이수 학점 : 150학점 (예정) </li>
+                            <li>이수 학점 : 189학점 (예정) </li>
                         </ul>
                     </div>
 
