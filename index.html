@@ -83,8 +83,8 @@
         }
 
         header {
-            position: absolute;
-            top: 40px;
+            position: fixed;
+            top: 32px;
             left: 40px;
             z-index: 50;
         }
@@ -115,22 +115,14 @@
             max-height: 85vh;
             overflow-y: auto;
             padding-right: 15px;
+            padding-top: 80px;
         }
 
-        .section-content::-webkit-scrollbar {
-            width: 6px;
-        }
-        .section-content::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 3px;
-        }
-        .section-content::-webkit-scrollbar-track {
-            background: transparent;
-        }
+        .section-content::-webkit-scrollbar { width: 6px; }
+        .section-content::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 3px; }
+        .section-content::-webkit-scrollbar-track { background: transparent; }
 
-        .section-content.active {
-            display: block;
-        }
+        .section-content.active { display: block; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -268,7 +260,6 @@
             }
             .nav-item { text-align: center; padding: 5px; border-right: none; border-bottom: 2px solid transparent; }
             .nav-item.active { border-right: none; border-bottom: 2px solid var(--accent-color); }
-            
             .container { display: block; padding-top: 100px; padding-bottom: 100px; }
             h1 { font-size: 3rem; }
             .info-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -287,201 +278,261 @@
 
     <nav>
         <div class="nav-item active" onclick="showSection('home')">Home</div>
-        <div class="nav-item" onclick="showSection('info')">Info</div>
+        <div class="nav-item" onclick="showSection('education')">Education</div>
+        <div class="nav-item" onclick="showSection('skills')">Skills</div>
+        <div class="nav-item" onclick="showSection('activity')">Activity</div>
         <div class="nav-item" onclick="showSection('social')">Social</div>
-        <div class="nav-item" onclick="showSection('projects')">Projects</div>
-    </nav>
-
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="San Logo">
-            <span class="logo-text">Hyosan Shin</span>
-        </div>
-    </header>
-
-    <nav>
-        <div class="nav-item active" onclick="showSection('home')">Home</div>
-        <div class="nav-item" onclick="showSection('info')">Info</div>
-        <div class="nav-item" onclick="showSection('social')">Social</div>
-        <div class="nav-item" onclick="showSection('projects')">Projects</div>
     </nav>
 
     <div class="container">
-        
+
+        <!-- HOME -->
         <div id="home" class="section-content active">
             <h1>Welcome.</h1>
             <div class="home-desc">
-                물리학을 통해 세상을 이해하고<br>
-                컴퓨터공학으로 원리를 구조화하고<br>
-                전자공학으로 그 논리를 구현하고 싶은<br>
-                도전적인 개발자 <span style="color:var(--text-main); font-weight:bold;">신효산(San)</span>입니다.
+                My name is <span style="color:var(--gold-color); font-weight:bold;">Hyosan Shin (San)</span>.<br>
+                I study Physics to understand how the world works.<br>
+                I study Electrical Engineering to implement that understanding in hardware.<br>
+                My goal is AI semiconductor research — where physics, circuits, and algorithms converge.
             </div>
-
             <div class="current-box">
                 <p class="current-label">Currently</p>
-                <p style="font-size: 1.1rem;">서강대학교 재학중</p>
-                <p style="color: var(--text-muted);">제1전공 : 물리학과</p>
-                <p style="color: var(--text-muted);">제2전공 : 컴퓨터공학과 (예정)</p>
-                <p style="color: var(--text-muted);">제3전공 : 전자공학과 (예정)</p>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">추가독학 : 경영 & 경제</p>
+                <p style="font-size: 1.1rem;">Sogang University — Undergraduate</p>
+                <p style="color: var(--text-muted);">1st Major : Physics</p>
+                <p style="color: var(--text-muted);">2nd Major : Electronic Engineering</p>
             </div>
         </div>
 
-        <div id="info" class="section-content">
-            <h2>About Me</h2>
+        <!-- EDUCATION -->
+        <div id="education" class="section-content">
+            <h2>Education</h2>
             <div class="info-grid">
                 <div class="col-left">
                     <div class="info-group">
-                        <span class="info-label">Education</span>
+                        <span class="info-label">Degree</span>
                         <ul class="info-text">
-                            <li>
-                                Sogang University (학사)
-                                <ul style="list-style: none; padding-left: 15px; margin-top: 5px;">
-                                    <li style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 3px;"> 제 1전공: 물리학과</li>
-                                    <li style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 3px;"> 제 2전공: 컴퓨터공학과 (예정)</li>
-                                    <li style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 3px;"> 제 3전공: 전자공학과 (예정)</li>
-                                </ul>
-                            </li>
+                            <li>Sogang University (B.S.)</li>
+                            <li>1st Major : Physics</li>
+                            <li>2nd Major : Electronic Engineering</li>
                         </ul>
                     </div>
-
                     <div class="info-group">
-                        <span class="info-label">Grade Point Average (GPA)</span>
+                        <span class="info-label">GPA</span>
                         <ul class="info-text">
-                            <li>일반 학점: 3.85 / 4.3</li>
-                            <li>전공 학점: 4.15 / 4.3</li>
-                            <li>이수 학점: 177학점 (예정) </li>
+                            <li>Cumulative : 3.9 / 4.3</li>
+                            <li>Major : 4.15 / 4.3</li>
+                            <li>Credits : 153 (Expected)</li>
                         </ul>
                     </div>
-
                     <div class="info-group">
-                        <span class="info-label">Language & Skills</span>
+                        <span class="info-label">Certifications</span>
+                        <ul class="info-text">
+                            <li>정보기기운용기능사 (2026~)</li>
+                            <li>정보처리기사 — Target 2031</li>
+                            <li>Codeforces : Specialist (target)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-right">
+                    <div class="info-group">
+                        <span class="info-label">Language</span>
                         <div style="margin-top: 10px; padding-left: 5px;">
                             <p style="color: var(--gold-color); font-size: 0.95rem; font-weight: bold; margin-bottom: 5px;">1. English proficiency</p>
                             <ul class="info-text" style="margin-bottom: 15px;">
-                                <li>TOEIC : 820점 (2026~2028)</li>
+                                <li>TOEIC : 820 (2026~2028)</li>
                                 <li>TOEFL : - ( ~ )</li>
                                 <li>TEPS : - ( ~ )</li>
                                 <li>OPIc : - ( ~ )</li>
                             </ul>
                             <p style="color: var(--gold-color); font-size: 0.95rem; font-weight: bold; margin-bottom: 5px;">2. Foreign languages</p>
                             <ul class="info-text">
-                                <li>JLPT(일본어) : - ( ~ )</li>
-                                <li>Goethe(독일어) : - ( ~ )</li>
+                                <li>JLPT (Japanese) : - ( ~ )</li>
+                                <li>Goethe (German) : - ( ~ )</li>
                             </ul>
-                        </div>
-                    </div>
-
-                    <div class="info-group">
-                        <span class="info-label">Technical Skills</span>
-                        <div style="margin-top: 10px; padding-left: 5px;">
-                            <p style="color: var(--gold-color); font-size: 0.95rem; font-weight: bold; margin-bottom: 5px;">1. Programming Languages</p>
-                            <ul class="info-text" style="margin-bottom: 15px;">
-                                <li>C, C++, C#, Python</li>
-                                <li>Planned: Assembly, CUDA, Rust, Java</li>
-                            </ul>
-                            <p style="color: var(--gold-color); font-size: 0.95rem; font-weight: bold; margin-bottom: 5px;">2. Hardware & Simulation</p>
-                            <ul class="info-text">
-                                <li>LTspice</li>
-                                <li>Planned: Verilog, SystemVerilog</li>
-                            </ul>
-                            <p style="color: var(--gold-color); font-size: 0.95rem; font-weight: bold; margin-bottom: 5px;">3. Development Tools & Environments</p>
-                            <ul class="info-text">
-                                <li>Git, MATLAB, HTML, LaTeX</li>
-                                <li>Planned: PyTorch, Vivado, GDB, SQL</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="info-group">
-                        <span class="info-label">Certifications</span>
-                        <ul class="info-text">
-                            <li>Codeforces : </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-right">
-
-                    <div class="info-group">
-                        <span class="info-label">Awards & Competitions</span>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2026</span>
-                            <span class="timeline-content"> - </span>
-                        </div>
-                    </div>                    
-                    
-                    <div class="info-group">
-                        <span class="info-label">International Programs</span>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2027</span>
-                            <span class="timeline-content"> - </span>
-                        </div>
-                    </div>
-
-                    <div class="info-group">
-                        <span class="info-label">Research Experience</span>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2029</span>
-                            <span class="timeline-content"> - </span>
-                        </div>
-                    </div>
-
-                    <div class="info-group">
-                        <span class="info-label">Intership</span>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2030</span>
-                            <span class="timeline-content"> - </span>
-                        </div>
-                    </div>
-                    
-                    <div class="info-group">
-                        <span class="info-label">Department Activities</span>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2025</span>
-                            <span class="timeline-content">물리학과 부학생회장</span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2026</span>
-                            <span class="timeline-content">물리학과 비상대책위원장</span>
-                        </div>
-                    </div>
-
-                    <div class="info-group">
-                        <span class="info-label">Academic Societies</span>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2026</span>
-                            <span class="timeline-content">물리학과 학술 토론 중점 학회 SPIN
-                                <span class="sub-detail">SPIN 1기 부학회장</span>
-                            </span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2026</span>
-                            <span class="timeline-content">알고리즘 문제해결 학회 ICPC Team</span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2026</span>
-                            <span class="timeline-content">컴퓨터공학과 프로젝트 학회 Release</span>
-                        </div>
-                    </div>
-
-                    <div class="info-group">
-                        <span class="info-label">Club Activities</span>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2025</span>
-                            <span class="timeline-content">중앙 배구동아리 SpikeG</span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2026</span>
-                            <span class="timeline-content">중앙 컴퓨터 동아리 SGCC</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
+        <!-- SKILLS -->
+        <div id="skills" class="section-content">
+            <h2>Skills</h2>
+            <div class="info-grid">
+                <div class="col-left">
+                    <div class="info-group">
+                        <span class="info-label">Programming Languages</span>
+                        <ul class="info-text">
+                            <li>C, C++, C#, Python</li>
+                            <li>Planned: Assembly, CUDA, Rust</li>
+                        </ul>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Libraries &amp; Frameworks</span>
+                        <ul class="info-text">
+                            <li>Pandas, NumPy, Matplotlib, SciPy</li>
+                            <li>PyVISA, PyQt5</li>
+                            <li>Planned: PyTorch</li>
+                        </ul>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Awards &amp; Competitions</span>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2030</span>
+                            <span class="timeline-content"> - </span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2031</span>
+                            <span class="timeline-content"> - </span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2031</span>
+                            <span class="timeline-content"> - </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-right">
+                    <div class="info-group">
+                        <span class="info-label">Hardware &amp; Simulation</span>
+                        <ul class="info-text">
+                            <li>LTspice, NI ELVIS</li>
+                            <li>Planned: Verilog, SystemVerilog, Vivado</li>
+                        </ul>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Development Tools</span>
+                        <ul class="info-text">
+                            <li>Git, MATLAB, HTML, LaTeX</li>
+                            <li>Unity, Unreal Engine</li>
+                            <li>Planned: GDB, SQL</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACTIVITY -->
+        <div id="activity" class="section-content">
+            <h2>Activity</h2>
+            <div class="info-grid">
+                <div class="col-left">
+                    <div class="info-group">
+                        <span class="info-label">Projects</span>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-content">The Assassin
+                                <span class="sub-detail">Unity · 2D Action</span>
+                            </span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-content">Smash
+                                <span class="sub-detail">Unity · 2D Action</span>
+                            </span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-content">Sound Monitor
+                                <span class="sub-detail">LM358 BPF · Arduino · FFT</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Research Experience</span>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2030</span>
+                            <span class="timeline-content"> - </span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2031</span>
+                            <span class="timeline-content"> - </span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2033</span>
+                            <span class="timeline-content"> - </span>
+                        </div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Internship</span>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2031</span>
+                            <span class="timeline-content"> - </span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2032</span>
+                            <span class="timeline-content"> - </span>
+                        </div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">International Programs</span>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2028</span>
+                            <span class="timeline-content"> - </span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2030</span>
+                            <span class="timeline-content"> - </span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2031</span>
+                            <span class="timeline-content"> - </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-right">
+                    <div class="info-group">
+                        <span class="info-label">Department Activities</span>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2025</span>
+                            <span class="timeline-content">Vice President, Physics Student Council</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-content">Emergency Committee Chair,<br>Physics Student Council</span>
+                        </div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Academic Societies</span>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-content">SPIN — Physics Academic Discussion Society
+                                <span class="sub-detail">Founding Vice President, 1st Generation</span>
+                                <span class="sub-detail">Study : Nakahara (Mathematical Physics)</span>
+                            </span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-content">ICPC Team — Algorithm Problem Solving Society
+                                <span class="sub-detail">Study : ICPC Algorithm Training</span>
+                            </span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-content">Release — CS Project Society
+                                <span class="sub-detail">Study : Git, Unity</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Club Activities</span>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2025</span>
+                            <span class="timeline-content">SpikeG — Central Volleyball Club</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-content">SGCC — Central Computer Club
+                                <span class="sub-detail">Study : Game Development</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOCIAL -->
         <div id="social" class="section-content">
-            <h2>Social Links</h2>
+            <h2>Social</h2>
             <div class="social-list">
                 <div class="social-row">
                     <span class="social-name">Email (Personal)</span>
@@ -492,7 +543,7 @@
                     <span class="social-value"><a href="mailto:hyosan1423@sogang.ac.kr">hyosan1423@sogang.ac.kr</a></span>
                 </div>
                 <div class="social-row">
-                    <span class="social-name">Github</span>
+                    <span class="social-name">GitHub</span>
                     <span class="social-value"><a href="https://github.com/hyosan1423" target="_blank">hyosan1423</a></span>
                 </div>
                 <div class="social-row">
@@ -500,12 +551,8 @@
                     <span class="social-value"><a href="https://codeforces.com/profile/hyosan1423" target="_blank">hyosan1423</a></span>
                 </div>
                 <div class="social-row">
-                    <span class="social-name">Solved.ac (BOJ)</span>
-                    <span class="social-value"><a href="https://solved.ac/profile/hyosan1423" target="_blank">hyosan1423</a></span>
-                </div>
-                <div class="social-row">
                     <span class="social-name">Discord</span>
-                    <span class="social-value"><a href="https://instagram.com/hyosan1632" target="_blank">hyosan1423</a></span>
+                    <span class="social-value"><a href="#">hyosan1423</a></span>
                 </div>
                 <div class="social-row">
                     <span class="social-name">Instagram</span>
@@ -514,42 +561,15 @@
             </div>
         </div>
 
-        <div id="projects" class="section-content">
-            <h2>Projects</h2>
-            <div style="color: var(--text-main);">
-                <div class="info-group">
-                    <span class="info-label">2026</span>
-                    <p style="font-size: 1.2rem; font-weight: bold;">The Assassin</p>
-                    <p style="color: var(--text-muted);">Unity 기반 2D형 스토리 액션 게임</p>
-                </div>
-                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">
-                <div style="color: var(--text-muted);">
-                    <p>• 물리학 기반 엔진 시뮬레이션 (Coming soon)</p>
-                    <p>• 양자역학 물리엔진 구현 (Idea Stage)</p>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
         function showSection(sectionId) {
-            const sections = document.querySelectorAll('.section-content');
-            sections.forEach(sec => {
-                sec.classList.remove('active');
-            });
-
-            const target = document.getElementById(sectionId);
-            if(target) {
-                target.classList.add('active');
-            }
-
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
+            document.querySelectorAll('.section-content').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
-                // 대소문자 무시하고 매칭되도록 수정
-                if(item.innerText.toLowerCase() === sectionId.toLowerCase()) {
-                    item.classList.add('active');
-                }
+                if (item.innerText.toLowerCase() === sectionId.toLowerCase()) item.classList.add('active');
             });
         }
     </script>
