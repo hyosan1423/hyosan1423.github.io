@@ -219,13 +219,76 @@
         }
 
         .project-link {
-            color: var(--text-muted);
+            color: var(--text-main);
             text-decoration: none;
             transition: color 0.3s;
         }
         .project-link:hover {
             color: var(--gold-color);
             text-decoration: underline;
+        }
+
+        .status-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 1px 8px;
+            border-radius: 10px;
+            margin-left: 6px;
+            vertical-align: middle;
+            letter-spacing: 0.5px;
+        }
+        .status-badge.done {
+            background: rgba(166, 227, 161, 0.15);
+            color: #a6e3a1;
+        }
+        .status-badge.wip {
+            background: rgba(249, 226, 175, 0.15);
+            color: #f9e2af;
+        }
+        .status-badge.planned {
+            background: rgba(147, 153, 178, 0.15);
+            color: #9399b2;
+        }
+
+        .research-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        .numbered-list, .bulleted-list {
+            list-style: none;
+        }
+        .numbered-list li, .bulleted-list li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 18px;
+        }
+        .numbered-list { counter-reset: item; }
+        .numbered-list li { counter-increment: item; }
+        .numbered-list li::before {
+            content: counter(item) ".";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--gold-color);
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+        }
+        .bulleted-list li::before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            top: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        .list-title {
+            display: block;
+            color: var(--text-main);
+            font-size: 1.05rem;
         }
 
         .social-list {
@@ -290,6 +353,8 @@
         <div class="nav-item active" onclick="showSection('home')">Home</div>
         <div class="nav-item" onclick="showSection('education')">Education</div>
         <div class="nav-item" onclick="showSection('skills')">Skills</div>
+        <div class="nav-item" onclick="showSection('projects')">Projects</div>
+        <div class="nav-item" onclick="showSection('research')">Research</div>
         <div class="nav-item" onclick="showSection('activity')">Activity</div>
         <div class="nav-item" onclick="showSection('social')">Social</div>
     </nav>
@@ -302,8 +367,10 @@
             <div class="home-desc">
                 My name is <span style="color:var(--gold-color); font-weight:bold;">Hyosan Shin (San)</span>.<br>
                 I study Physics to understand how the world works.<br>
-                I study Electrical Engineering to implement that understanding in hardware.<br>
-                My goal is AI semiconductor research — where physics, circuits, and algorithms converge.
+                I study Computer Science to structure it into logic.<br>
+                I study Electrical Engineering to build it into hardware.<br>
+                My goal is algorithm-hardware co-design<br>
+                — where physics, circuits, and algorithms converge.
             </div>
             <div class="current-box">
                 <p class="current-label">Currently</p>
@@ -425,44 +492,91 @@
             </div>
         </div>
 
+        <!-- PROJECTS -->
+        <div id="projects" class="section-content">
+            <h2>Projects</h2>
+            <div class="info-grid" style="grid-template-columns: 1fr;">
+                <div class="col-left">
+                    <div class="info-group">
+                        <span class="info-label">2026</span>
+                        <ul class="bulleted-list">
+                            <li>
+                                <span class="list-title"><a class="project-link" href="https://github.com/hyosan1423/sound-monitor" target="_blank" rel="noopener">Sound Monitor</a><span class="status-badge done">완료</span></span>
+                                <span class="sub-detail">Passive RLC BPF · Arduino · PyQt5</span>
+                            </li>
+                            <li>
+                                <span class="list-title">The Assassin<span class="status-badge wip">진행중</span></span>
+                                <span class="sub-detail">Unity · 2D Action</span>
+                            </li>
+                            <li>
+                                <span class="list-title">Smash<span class="status-badge wip">진행중</span></span>
+                                <span class="sub-detail">Unity · 2D Action</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESEARCH -->
+        <div id="research" class="section-content">
+            <h2>Research</h2>
+            <div class="info-grid">
+                <div class="col-left">
+                    <div class="info-group">
+                        <span class="info-label">1. 논문 분석</span>
+                        <ul class="bulleted-list">
+                            <li>
+                                <span class="list-title">Hopfield, J.J.<span class="status-badge wip">진행중</span></span>
+                                <span class="sub-detail">Neural Networks and Physical Systems with Emergent Collective Computational Abilities</span>
+                            </li>
+                            <li>
+                                <span class="list-title">Mead, C.<span class="status-badge wip">진행중</span></span>
+                                <span class="sub-detail">Neuromorphic Electronic Systems</span>
+                            </li>
+                            <li>
+                                <span class="list-title">AlexNet · ResNet · Transformer · PINN<span class="status-badge wip">초안 작성중</span></span>
+                                <span class="sub-detail">딥러닝 기초 모델 4편</span>
+                            </li>
+                        </ul>
+                        <p class="research-note">전체 로드맵 : 물리 14편 · 공학 28편 — 2026~2037 단계적 진행 예정</p>
+                    </div>
+                </div>
+                <div class="col-right">
+                    <div class="info-group">
+                        <span class="info-label">2. 논문 구현</span>
+                        <ul class="bulleted-list">
+                            <li>
+                                <span class="list-title">DL 핵심 논문 PyTorch 재현<span class="status-badge planned">예정</span></span>
+                                <span class="sub-detail">AlexNet · ResNet · Transformer · PINN</span>
+                            </li>
+                            <li>
+                                <span class="list-title">경량화 DNN 추론 엔진<span class="status-badge planned">예정</span></span>
+                                <span class="sub-detail">Eyeriss · EIE · Deep Compression</span>
+                            </li>
+                            <li>
+                                <span class="list-title">ReRAM 기반 In-Memory Computing 시뮬레이터<span class="status-badge planned">예정</span></span>
+                                <span class="sub-detail">PRIME · Verma</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">3. 작성 논문</span>
+                        <p class="sub-detail" style="margin-top:8px;"> - </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- ACTIVITY -->
         <div id="activity" class="section-content">
             <h2>Activity</h2>
             <div class="info-grid">
                 <div class="col-left">
                     <div class="info-group">
-                        <span class="info-label">Projects</span>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2026</span>
-                            <span class="timeline-content">The Assassin
-                                <span class="sub-detail">Unity · 2D Action</span>
-                            </span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2026</span>
-                            <span class="timeline-content">Smash
-                                <span class="sub-detail">Unity · 2D Action</span>
-                            </span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2026</span>
-                            <span class="timeline-content"><a class="project-link" href="https://github.com/hyosan1423/sound-monitor" target="_blank" rel="noopener">Sound Monitor</a>
-                                <span class="sub-detail">Passive BPF · Arduino · PyQt5</span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="info-group">
                         <span class="info-label">Research Experience</span>
                         <div class="timeline-item">
                             <span class="timeline-year">2030</span>
-                            <span class="timeline-content"> - </span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2031</span>
-                            <span class="timeline-content"> - </span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-year">2033</span>
                             <span class="timeline-content"> - </span>
                         </div>
                     </div>
