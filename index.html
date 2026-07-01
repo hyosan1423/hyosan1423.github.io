@@ -218,6 +218,16 @@
             color: var(--gold-color);
         }
 
+        .project-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .project-link:hover {
+            color: var(--gold-color);
+            text-decoration: underline;
+        }
+
         .social-list {
             margin-top: 20px;
         }
@@ -436,7 +446,7 @@
                         </div>
                         <div class="timeline-item">
                             <span class="timeline-year">2026</span>
-                            <span class="timeline-content">Sound Monitor
+                            <span class="timeline-content"><a class="project-link" href="https://github.com/hyosan1423/sound-monitor" target="_blank" rel="noopener">Sound Monitor</a>
                                 <span class="sub-detail">Passive BPF · Arduino · PyQt5</span>
                             </span>
                         </div>
